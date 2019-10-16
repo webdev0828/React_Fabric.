@@ -334,7 +334,7 @@ body {
   padding: 10px 0 10px 15px;
 }
 #menu > li.active > a {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #2a3f54;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1) inset;
 }
 #menu > li:hover > a,
@@ -2712,6 +2712,11 @@ img.db {
   line-height: 30px;
   font-size: 12px;
   color: #fff;
+  cursor: pointer;
+}
+
+.adddiv p:hover {
+  background-color: #207d6e;
 }
 
 .adddiv small {
@@ -2719,8 +2724,8 @@ img.db {
   font-size: 11px;
   text-align: left !important;
   width: 100%;
-  float: left;
-  padding-left: 30px;
+  /* float: left; */
+  /* padding-left: 30px; */
   margin-top: 2px;
   box-sizing: border-box;
 }
@@ -2745,7 +2750,7 @@ img.pcross {
 
 .addcontdiv {
   padding-top: 50px;
-  border-left: 25px solid #ebf6f8;
+  /* border-left: 25px solid #ebf6f8; */
 }
 
 .matsize {
@@ -2797,7 +2802,7 @@ img.pcross {
 }
 
 .addcontdiv {
-  background-image: url(../img/addlogobg.png);
+  /* background-image: url(../img/addlogobg.png); */
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -3226,8 +3231,8 @@ a:hover {
   background: linear-gradient(
     to right,
     #1baa92 0%,
-    #1baa92 50%,
-    #fff 50%,
+    #1baa92 0%,
+    #fff 0%,
     #fff 100%
   );
 
@@ -3268,14 +3273,20 @@ a:hover {
 .choos-clr-btn button {
   border-radius: 1px;
   background: #000;
-  padding-left: 55px;
-  padding-right: 55px;
+  padding: 16px 55px;
   margin-left: 20px;
   float: right;
   border: 1px solid #606570;
 }
 .choos-clr-btn button:hover {
   color: #fff;
+}
+input#text-color,
+input#outline-color {
+  position: absolute;
+  top: 20px;
+  left: -55px;
+  z-index: -9999;
 }
 .choos-clr-label span {
   display: block;
@@ -3319,4 +3330,132 @@ a:hover {
 }
 .shape-blk {
   padding-top: 30px;
+}
+
+.canvas-container {
+  margin: 0px auto;
+}
+
+/* .canvas-container {
+  margin-left: 120px !important;
+} */
+
+.main-edit-content {
+  background-image: url(../img/addlogobg.png);
+  margin-left: 20px;
+}
+
+.add-text-blk-hmenu .font-stl-blk button:focus {
+  color: white !important;
+  border-color: #2ba268 !important;
+}
+
+.add-text-blk-hmenu .font-stl-blk button.active {
+  background-color: #2ba268;
+  border-color: #2ba268 !important;
+  color: white;
+}
+
+button#left-align {
+  background-image: url(../img/left-align.png) !important;
+  background-repeat: no-repeat;
+  height: 32px;
+}
+
+button#center-align {
+  background-image: url(../img/center-align.png) !important;
+  background-repeat: no-repeat;
+  height: 32px;
+}
+
+button#right-align {
+  background-image: url(../img/right-align.png) !important;
+  background-repeat: no-repeat;
+  height: 32px;
+}
+
+#text-style div h1 {
+  margin: 10px 0px !important;
+  padding: 10px 10px !important;
+  cursor: pointer;
+  color: #dbdbdb;
+  border-radius: 5px;
+  margin: 20px 30px;
+  background: #2a3f54;
+}
+
+/* .inneraddcontdiv {
+  display: flex;
+} */
+
+.artwork {
+  width: 170px;
+  margin-left: 45px;
+}
+
+.material-color-pane {
+  margin-top: 80px;
+  padding: 10px 12px;
+  background: #333a4a;
+  margin-left: 85px;
+}
+
+.material-color-pane div {
+  padding: 17px 25px;
+  margin: 7px 4px;
+  background: black;
+  cursor: pointer;
+}
+
+.material-color-pane p {
+  color: white;
+  border-bottom: 1px solid #678494;
+  margin-bottom: 0px;
+  margin-top: -7px;
+}
+
+.material-color-pane span {
+  color: white;
+  font-size: 12px;
+}
+
+.material-color-pane button.redo {
+  margin: 5px 5px;
+  float: left;
+  background: #34405a;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 2px 5px 4px 5px !important;
+}
+
+.material-color-pane button.redo img,
+.material-color-pane button.delete img {
+  width: 15px;
+}
+
+.material-color-pane button.delete {
+  padding: 13px 10px;
+  margin: 5px 5px;
+  float: right;
+  background: #34405a;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 2px 5px 4px 5px !important;
+}
+
+.material-color-pane img.cross-icon {
+  position: absolute;
+  top: 72px;
+  left: 90px;
+  cursor: pointer;
+}
+
+.text-center.pad0.main-content {
+  background-color: #ebf6f8;
+}
+
+#customFile {
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
 }

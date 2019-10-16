@@ -18,9 +18,10 @@ class Text extends React.Component {
   }
 
   componentDidMount() {
-    const text = new window.fabric.IText('sample text', {})
+    const text = new window.fabric.IText('sample text', {
+      type: 'text',
+    })
     this.props.canvas.add(text)
-    console.log(text)
   }
 
   render() {

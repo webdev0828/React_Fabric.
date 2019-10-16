@@ -152,7 +152,6 @@ class Toolbar extends React.Component {
     if (activeObject == null) return
 
     activeObject.set('fontSize', fontSize)
-    console.log(activeObject)
   }
 
   updateCanvasState = () => {

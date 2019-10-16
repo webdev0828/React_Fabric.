@@ -21,20 +21,228 @@ const initialState = {
   saved_id: '',
   load_design: false,
   wrestling_config: {
-    width: 0,
-    height: 0,
+    width: 7,
+    height: 7,
     option_setting: true,
     length_unit: 'FEET',
+  },
+  canvas: null,
+  canvas_grid: 0,
+  mat_type: 0,
+  mat_color: 'blue',
+  selectedMaterialColor: null,
+  templates: {
+    First_Template: [
+      {
+        x: 0,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 0,
+        y: 1,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 1,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 0,
+        y: 2,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 2,
+        width: 2,
+        height: 1,
+      },
+    ],
+    Second_Template: [
+      {
+        x: 0,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 0,
+        y: 1,
+        width: 1,
+        height: 2,
+      },
+      {
+        x: 1,
+        y: 1,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 1,
+        y: 2,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 3,
+        y: 1,
+        width: 1,
+        height: 2,
+      },
+      {
+        x: 0,
+        y: 3,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 3,
+        width: 2,
+        height: 1,
+      },
+    ],
+    Third_Template: [
+      {
+        x: 0,
+        y: 0,
+        width: 3,
+        height: 1,
+      },
+      {
+        x: 0,
+        y: 1,
+        width: 3,
+        height: 1,
+      },
+      {
+        x: 0,
+        y: 2,
+        width: 3,
+        height: 1,
+      },
+    ],
+    Forth_Template: [
+      {
+        x: 0,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 4,
+        y: 0,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 0,
+        y: 1,
+        width: 1,
+        height: 2,
+      },
+      {
+        x: 0,
+        y: 3,
+        width: 1,
+        height: 2,
+      },
+      {
+        x: 1,
+        y: 1,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 3,
+        y: 1,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 1,
+        y: 2,
+        width: 1,
+        height: 2,
+      },
+      {
+        x: 2,
+        y: 2,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 2,
+        y: 3,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 4,
+        y: 2,
+        width: 1,
+        height: 2,
+      },
+      {
+        x: 1,
+        y: 4,
+        width: 2,
+        height: 1,
+      },
+      {
+        x: 3,
+        y: 4,
+        width: 2,
+        height: 1,
+      },
+    ],
   },
 }
 
 function reducer(state = [], action) {
   switch (action.type) {
+    case 'SET_CANVAS':
+      return {
+        ...state,
+        canvas: action.canvas,
+      }
     case 'NEW_TEXT':
       state.components[state.components.length] = action.component
       return {
         ...state,
         components: state.components,
+      }
+    case 'NEW_RECT':
+      state.components[state.components.length] = action.data.component
+      return {
+        ...state,
+        components: state.components,
+        mat_color: action.data.mat_color,
+        mat_type: action.data.mat_type,
       }
     case 'SET_CONFIG':
       return {
@@ -57,7 +265,16 @@ function reducer(state = [], action) {
         ...state,
         wrestling_config: action._config,
       }
-
+    case 'SET_CANVAS_GRID':
+      return {
+        ...state,
+        canvas_grid: action.grid,
+      }
+    case 'SET_SELECTEED_MATERIAL_COLOR':
+      return {
+        ...state,
+        selectedMaterialColor: action.color,
+      }
     default:
       return state
   }

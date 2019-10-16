@@ -4,16 +4,17 @@ import $ from 'jquery'
 class Sidebar extends React.Component {
   setActiveToolbar = e => {
     let target = $(e.target).attr('data-target')
-    console.log(target)
     $('.second-menu').hide()
     $('#' + target).show()
+    $(`#menu li.nav.active`).removeClass('active')
+    $(`#menu li.nav.${target}`).addClass('active')
   }
   render() {
     return (
       <div id="left">
         <ul id="menu" className="bg-blue dker">
           <li className="nav-divider"></li>
-          <li className="">
+          <li className="nav mats">
             <a
               href="#"
               data-target="mats"
@@ -31,7 +32,7 @@ class Sidebar extends React.Component {
               </span>
             </a>
           </li>
-          <li>
+          <li className="nav template">
             <a
               href="#"
               data-target="template"
@@ -49,7 +50,7 @@ class Sidebar extends React.Component {
               </span>
             </a>
           </li>
-          <li>
+          <li className="nav text">
             <a
               href="#"
               data-target="text"
@@ -67,7 +68,7 @@ class Sidebar extends React.Component {
               </span>{' '}
             </a>
           </li>
-          <li>
+          <li className="nav logo">
             <a
               href="#"
               data-target="logo"

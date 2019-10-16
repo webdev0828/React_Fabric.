@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const LeftSidebar = () => {
   return (
@@ -486,17 +487,20 @@ const LogoToolbar = () => {
   )
 }
 
-const EditContent = () => {
+const EditContent = props => {
+  const config = props.wrestling_config
   return (
-    <div className="col-md-8 col-sm-12 text-center pad0">
+    <>
       <div className="addcontdiv">
         <div className="inneraddcontdiv">
           <img
-            src={require('./../../../assets/img/select-tem.jpg')}
+            src={require('./../../../assets/img/addlogobg.png')}
             alt="Template"
           />
           <p className="matsize">
-            <span>MAT SIZE : 8m x 9m</span>
+            <span>
+              MAT SIZE : {config.width}m x {config.height}m
+            </span>
           </p>
         </div>
       </div>
@@ -524,12 +528,14 @@ const EditContent = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
 class Content extends React.Component {
   render() {
+    const wrestling_config = this.props.wrestling_config
+    const components = this.props.components
     return (
       <div id="content">
         <div className="outer">
@@ -543,8 +549,14 @@ class Content extends React.Component {
                 <LogoToolbar />
               </div>
               <div className="col-md-8 col-sm-12 text-center pad0">
-                <EditContent />
+                <EditContent
+                  wrestling_config={wrestling_config}
+                  components={components}
+                />
               </div>
+              {/* <div className="col-md-1 col-sm-12 text-center pad0 h7">
+                <RightToolbar />
+              </div> */}
             </div>
           </div>
         </div>
@@ -553,4 +565,16 @@ class Content extends React.Component {
   }
 }
 
-export default Content
+const mapStateToProps = state => {
+  return {
+    wrestling_config: state.wrestling_config,
+  }
+}
+
+// const mapDispatchToProps = dispatch => {
+//   return bindActionCreators({ , setCanvasConfig }, dispatch)
+// }
+
+const ContentConnect = connect(mapStateToProps)(Content)
+
+export default ContentConnect
