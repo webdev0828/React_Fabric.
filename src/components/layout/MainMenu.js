@@ -59,16 +59,16 @@ class TopMenu extends React.Component {
           <div className="container">
             <ul className="nav navbar-nav navbar-center">
               <li className="active">
-                <a href="/">WRESTLING MAT DESIGNER</a>
+                <a href="/wrestling_mat_designer">WRESTLING MAT DESIGNER</a>
               </li>
               <li>
-                <a href="/">SWAIN MAT DESIGNER</a>
+                <a href="/swain_mat_designer">SWAIN MAT DESIGNER</a>
               </li>
               <li>
-                <a href="/">WALL PAD DESIGNER</a>
+                <a href="/wallpad_mat_designer">WALL PAD DESIGNER</a>
               </li>
               <li>
-                <a href="/">MARTIAL ARTS AND FITNESS DESIGNER</a>
+                <a href="/flexi_mat_designer">FLEXI ROLL DESIGNER</a>
               </li>
             </ul>
           </div>
